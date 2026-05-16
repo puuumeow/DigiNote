@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Login</title>
+
+  <link
+    rel="stylesheet"
+    href="../css/style.css"
+  >
+
+</head>
+
+<body>
+  <button
+  id="themeToggle"
+  class="btn btn-outline"
+  style="
+    position:fixed;
+    top:20px;
+    right:20px;
+    z-index:1000;
+  "
+>
+  🌙
+</button>
+  <section class="auth-page">
+
+    <div class="glass-card auth-card">
+
+      <h1 class="auth-title">
+        Welcome Back
+      </h1>
+
+      <p class="auth-subtitle text-secondary">
+        Login to continue
+      </p>
+
+      <div
+        id="bannedMessage"
+        class="banned-login-message"
+        style="display:none;"
+      >
+        User banned. Your account has been banned by admin.
+      </div>
+
+      <form id="loginForm">
+
+        <div class="form-group">
+
+          <label>Email</label>
+
+          <input
+            type="email"
+            id="email"
+            class="form-control"
+            required
+          >
+
+        </div>
+
+        <div class="form-group">
+
+          <label>Password</label>
+
+          <input
+            type="password"
+            id="password"
+            class="form-control"
+            required
+          >
+
+        </div>
+
+        <button
+          class="btn btn-primary"
+          style="width:100%;"
+        >
+          Login
+        </button>
+
+      </form>
+<p
+  style="
+    margin-top:20px;
+    text-align:center;
+  "
+>
+
+  Don't have an account?
+
+<a
+  href="./register.html"
+  style="
+    color:var(--primary);
+    font-weight:600;
+  "
+>
+  Register here
+</a>
+
+</p>
+    </div>
+
+  </section>
+
+  <script src="../js/utils/api.js"></script>
+
+  <script src="../js/utils/auth.js"></script>
+
+  <script src="../js/components/toast.js"></script>
+
+  <script src="../js/pages/login.js"></script>
+
+  <script src="../js/components/theme.js"></script>
+</body>
+</html>

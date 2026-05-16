@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DigiNote | User Profile</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="../index.html" class="logo">DigiNote</a>
+
+      <div class="nav-links">
+        <a href="./dashboard.html">Dashboard</a>
+        <a href="./notes.html">Notes</a>
+        <a href="./upload.html">Upload</a>
+        <a href="./my-notes.html">My Notes</a>
+        <a href="./profile.html">Profile</a>
+        <a href="./bookmarks.html">Bookmarks</a>
+        <a href="./notifications.html">Notifications</a>
+        <button id="themeToggle" class="btn btn-outline">🌙</button>
+      </div>
+    </div>
+  </nav>
+
+  <section class="profile-page upgraded-page clean-profile-page">
+    <div class="container">
+      <button onclick="history.back()" class="btn btn-outline back-btn">← Back</button>
+
+      <div id="publicProfileCard" class="glass-card public-profile-card"></div>
+
+      <div class="profile-section-title clean-library-title">
+        <span class="eyebrow">Shared Library</span>
+        <h2>Uploaded Notes</h2>
+      </div>
+
+      <div id="publicProfileNotes" class="note-grid"></div>
+    </div>
+  </section>
+
+  <script src="../js/utils/api.js"></script>
+  <script src="../js/utils/auth.js"></script>
+  <script src="../js/components/toast.js"></script>
+  <script src="../js/pages/public-profile.js"></script>
+  <script src="../js/components/theme.js"></script>
+</body>
+</html>

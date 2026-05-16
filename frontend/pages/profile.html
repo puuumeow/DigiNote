@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DigiNote | Profile</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="../index.html" class="logo">DigiNote</a>
+
+      <div class="nav-links">
+        <a href="./dashboard.html">Dashboard</a>
+        <a href="./notes.html">Notes</a>
+        <a href="./upload.html">Upload</a>
+        <a href="./my-notes.html">My Notes</a>
+        <a href="./profile.html" class="active">Profile</a>
+        <a href="./bookmarks.html">Bookmarks</a>
+        <a href="./notifications.html">Notifications</a>
+        <button id="themeToggle" class="btn btn-outline">🌙</button>
+      </div>
+    </div>
+  </nav>
+
+  <section class="profile-page upgraded-page clean-profile-page">
+    <div class="container">
+      <button onclick="history.back()" class="btn btn-outline back-btn">← Back</button>
+
+      <div class="clean-profile-header">
+        <div>
+          <span class="eyebrow">My Account</span>
+          <h1>Profile</h1>
+          <p class="text-secondary">Manage your academic identity, avatar, and uploaded notes.</p>
+        </div>
+      </div>
+
+      <div class="profile-layout clean-profile-layout">
+        <div class="glass-card profile-panel clean-profile-panel">
+          <div class="clean-profile-top">
+            <div class="profile-avatar-wrapper modern-avatar clean-avatar">
+              <img id="profileImage" src="" alt="Profile picture" class="profile-image">
+              <div id="profileInitial" class="profile-initial">U</div>
+            </div>
+
+            <div class="profile-info clean-profile-info">
+              <h2 id="profileName">User Name</h2>
+              <p id="profileEmail" class="text-secondary">email@gmail.com</p>
+              <div id="profileRole" class="profile-badge">User</div>
+            </div>
+          </div>
+
+          <div class="profile-details-grid clean-details-grid">
+            <div>
+              <span>University</span>
+              <strong id="profileUniversity">Not added</strong>
+            </div>
+            <div>
+              <span>Faculty</span>
+              <strong id="profileFaculty">Not added</strong>
+            </div>
+            <div>
+              <span>Department</span>
+              <strong id="profileDepartment">Not added</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-card avatar-upload-card clean-avatar-card">
+          <span class="eyebrow">Profile Picture</span>
+          <h2>Upload avatar</h2>
+          <p class="text-secondary">Use JPG, PNG, or WEBP. Max size: 2MB.</p>
+
+          <form id="avatarForm">
+            <label class="file-drop avatar-drop" for="avatarInput">
+              <span id="avatarFileName">Click to choose an image</span>
+              <small>JPG, PNG, WEBP</small>
+            </label>
+
+            <input type="file" id="avatarInput" class="hidden-file-input" accept="image/png,image/jpeg,image/jpg,image/webp">
+
+            <button id="avatarBtn" class="btn btn-primary btn-wide" type="submit">
+              Upload Avatar
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div class="profile-section-title clean-library-title">
+        <span class="eyebrow">Library</span>
+        <h2>Uploaded Notes</h2>
+      </div>
+
+      <div id="profileNotes" class="note-grid"></div>
+    </div>
+  </section>
+
+  <script src="../js/utils/api.js"></script>
+  <script src="../js/utils/auth.js"></script>
+  <script src="../js/components/toast.js"></script>
+  <script src="../js/pages/profile.js"></script>
+  <script src="../js/components/theme.js"></script>
+</body>
+</html>

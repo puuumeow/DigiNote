@@ -1,0 +1,58 @@
+body{
+  background: var(--bg);
+  color: var(--text);
+  transition: var(--transition);
+}
+
+
+/* CONTAINER */
+
+.container{
+  width:90%;
+  max-width:1300px;
+  margin:auto;
+}
+
+
+/* GLASS CARD */
+
+.glass-card{
+  background: var(--card);
+
+  backdrop-filter: blur(16px);
+
+  border:1px solid var(--border);
+
+  border-radius: var(--radius);
+
+  box-shadow: var(--shadow);
+}
+
+
+/* GRID */
+
+.grid{
+  display:grid;
+  gap:20px;
+}
+
+
+/* FLEX */
+
+.flex{
+  display:flex;
+}
+
+
+/* TEXT */
+
+.text-secondary{
+  color: var(--text-secondary);
+}
+
+
+/* PAGE */
+
+.page{
+  min-height:100vh;
+}

@@ -1,0 +1,19 @@
+.notification-list{
+  margin-top:30px;
+
+  display:flex;
+
+  flex-direction:column;
+
+  gap:20px;
+}
+
+.notification-item{
+  padding:20px;
+}
+
+.notification-time{
+  margin-top:10px;
+
+  font-size:14px;
+}

@@ -1,0 +1,44 @@
+:root {
+
+  --primary: #6366f1;
+  --primary-hover: #4f46e5;
+
+  --secondary: #06b6d4;
+
+  --success: #22c55e;
+  --danger: #ef4444;
+  --warning: #f59e0b;
+
+  --bg: #0f172a;
+  --bg-secondary: #1e293b;
+
+  --card: rgba(255, 255, 255, 0.05);
+
+  --text: #f8fafc;
+  --text-secondary: #94a3b8;
+
+  --border: rgba(255,255,255,0.08);
+
+  --shadow:
+    0 8px 32px rgba(0,0,0,0.3);
+
+  --radius: 18px;
+
+  --transition: all 0.3s ease;
+}
+
+
+/* LIGHT MODE */
+
+.light-mode {
+
+  --bg: #f8fafc;
+  --bg-secondary: #ffffff;
+
+  --card: rgba(255,255,255,0.8);
+
+  --text: #0f172a;
+  --text-secondary: #475569;
+
+  --border: rgba(0,0,0,0.08);
+}

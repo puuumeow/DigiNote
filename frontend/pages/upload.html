@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DigiNote | Upload Note</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="../index.html" class="logo">DigiNote</a>
+
+      <div class="nav-links">
+        <a href="./dashboard.html">Dashboard</a>
+        <a href="./notes.html">Notes</a>
+        <a href="./upload.html" class="active">Upload</a>
+        <a href="./my-notes.html">My Notes</a>
+        <a href="./profile.html">Profile</a>
+        <a href="./bookmarks.html">Bookmarks</a>
+        <a href="./notifications.html">Notifications</a>
+        <button id="themeToggle" class="btn btn-outline">🌙</button>
+      </div>
+    </div>
+  </nav>
+
+  <section class="upload-page upgraded-page">
+    <div class="container">
+      <button onclick="history.back()" class="btn btn-outline back-btn">← Back</button>
+
+      <div class="upload-layout">
+        <aside class="glass-card upload-help-card">
+          <span class="eyebrow">Creator Studio</span>
+          <h1>Share a clean academic note</h1>
+          <p class="text-secondary">
+            Choose a prebuilt category, upload your PDF, and decide if it should be free or paid.
+          </p>
+
+          <div class="tips-list">
+            <div>
+              <strong>PDF only</strong>
+              <span>Maximum file size is 10MB.</span>
+            </div>
+            <div>
+              <strong>Paid notes</strong>
+              <span>Paid files automatically generate a 2-page preview.</span>
+            </div>
+            <div>
+              <strong>Better search</strong>
+              <span>Use useful tags like CSE301, BUP, Economics.</span>
+            </div>
+          </div>
+        </aside>
+
+        <div class="glass-card upload-card premium-card">
+          <div class="section-heading">
+            <span class="eyebrow">Upload Form</span>
+            <h2>Note Details</h2>
+            <p class="text-secondary">Fields marked with * are required.</p>
+          </div>
+
+          <form id="uploadForm" class="smart-form">
+            <div class="form-group">
+              <label>Title *</label>
+              <input type="text" id="title" class="form-control" placeholder="Example: DSA Complete Notes" required>
+            </div>
+
+            <div class="form-group">
+              <label>Description *</label>
+              <textarea id="description" class="form-control" rows="5" placeholder="Write a short helpful summary..." required></textarea>
+            </div>
+
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label>Category *</label>
+                <div class="select-plus-row">
+                  <select id="category" class="form-control" required>
+                    <option value="">Select category</option>
+                  </select>
+                  <button type="button" id="addCategoryBtn" class="mini-plus-btn" title="Add custom category">＋</button>
+                </div>
+                <small class="field-hint">Can’t find yours? Press ＋ or choose “Add custom category”.</small>
+              </div>
+
+              <div class="form-group">
+                <label>University *</label>
+                <div class="select-plus-row">
+                  <select id="university" class="form-control" required>
+                    <option value="">Select university</option>
+                  </select>
+                  <button type="button" id="addUniversityBtn" class="mini-plus-btn" title="Add custom university">＋</button>
+                </div>
+                <input type="text" id="customUniversity" class="form-control custom-university-input" placeholder="Type custom university" style="display:none; margin-top:10px;">
+                <small class="field-hint">BUP is selected by default. Press ＋ if yours is missing.</small>
+              </div>
+            </div>
+
+            <div id="customCategoryGroup" class="custom-category-panel" style="display:none;">
+              <div class="form-group">
+                <label>Custom Category *</label>
+                <input type="text" id="customCategory" class="form-control" placeholder="Example: Environmental Science">
+              </div>
+
+              <p class="text-secondary small-note">
+                Add a subject/category that is not available in the prebuilt list. It will be saved with this note.
+              </p>
+            </div>
+
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label>Faculty *</label>
+                <div class="select-plus-row">
+                  <select id="faculty" class="form-control" required>
+                    <option value="">Select faculty</option>
+                  </select>
+                  <button type="button" id="addFacultyBtn" class="mini-plus-btn" title="Add custom faculty">＋</button>
+                </div>
+                <input type="text" id="customFaculty" class="form-control custom-faculty-input" placeholder="Type custom faculty" style="display:none; margin-top:10px;">
+                <small class="field-hint">Auto-fills from category, but you can press ＋ to add your own.</small>
+              </div>
+
+              <div class="form-group">
+                <label>Department *</label>
+                <div class="select-plus-row">
+                  <select id="department" class="form-control" required>
+                    <option value="">Select department</option>
+                  </select>
+                  <button type="button" id="addDepartmentBtn" class="mini-plus-btn" title="Add custom department">＋</button>
+                </div>
+                <input type="text" id="customDepartment" class="form-control custom-department-input" placeholder="Type custom department" style="display:none; margin-top:10px;">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Tags</label>
+              <input type="text" id="tags" class="form-control" placeholder="CSE301, Algorithms, BUP">
+            </div>
+
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label>Note Type</label>
+                <select id="isPaid" class="form-control">
+                  <option value="false">Free</option>
+                  <option value="true">Paid</option>
+                </select>
+              </div>
+
+              <div class="form-group" id="priceGroup" style="display:none;">
+                <label>Price</label>
+                <input type="number" id="price" class="form-control" min="1" placeholder="Example: 120">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>PDF File *</label>
+              <label class="file-drop" for="pdf">
+                <span id="pdfFileName">Click to choose a PDF file</span>
+                <small>Only .pdf files up to 10MB are allowed</small>
+              </label>
+              <input type="file" id="pdf" class="hidden-file-input" accept=".pdf" required>
+            </div>
+
+            <button id="uploadBtn" class="btn btn-primary btn-wide" type="submit">
+              Upload Note
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="../js/utils/api.js"></script>
+  <script src="../js/utils/auth.js"></script>
+  <script src="../js/components/toast.js"></script>
+  <script src="../js/data/categories.js"></script>
+  <script src="../js/pages/upload.js"></script>
+  <script src="../js/components/theme.js"></script>
+</body>
+</html>

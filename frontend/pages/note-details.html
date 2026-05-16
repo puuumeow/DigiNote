@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DigiNote | Note Details</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="../index.html" class="logo">DigiNote</a>
+
+      <div class="nav-links">
+        <a href="./dashboard.html">Dashboard</a>
+        <a href="./notes.html">Notes</a>
+        <a href="./upload.html">Upload</a>
+        <a href="./my-notes.html">My Notes</a>
+        <a href="./profile.html">Profile</a>
+        <a href="./bookmarks.html">Bookmarks</a>
+        <a href="./notifications.html">Notifications</a>
+        <button id="themeToggle" class="btn btn-outline">🌙</button>
+      </div>
+    </div>
+  </nav>
+
+  <section class="upgraded-page note-details-page">
+    <div class="container">
+      <button onclick="history.back()" class="btn btn-outline back-btn">← Back</button>
+
+      <div id="noteDetails" class="glass-card note-details-card"></div>
+
+      <div class="glass-card comments-detail-card">
+        <div class="modal-header">
+          <div>
+            <span class="eyebrow">Discussion</span>
+            <h2>Comments</h2>
+          </div>
+        </div>
+
+        <div id="detailsCommentsList"></div>
+
+        <form id="detailsCommentForm" class="comment-form">
+          <textarea id="detailsCommentText" class="form-control" placeholder="Write a helpful comment..." rows="3" required></textarea>
+          <button class="btn btn-primary" type="submit">Post Comment</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+
+
+  <div id="detailsReportBackdrop" class="modal-backdrop"></div>
+  <div id="detailsReportModal" class="glass-card report-modal">
+    <div class="modal-header">
+      <div>
+        <span class="eyebrow">Safety</span>
+        <h2>Report Note</h2>
+        <p id="detailsReportNoteTitle" class="text-secondary">Tell admins what is wrong with this note.</p>
+      </div>
+      <button onclick="closeDetailsReportModal()" class="btn btn-outline">✕</button>
+    </div>
+
+    <form id="detailsReportForm" class="report-form">
+      <select id="detailsReportReason" class="form-control" required>
+        <option value="">Select a reason</option>
+        <option value="spam">Spam</option>
+        <option value="plagiarism">Plagiarism</option>
+        <option value="fake content">Fake content</option>
+        <option value="harassment">Harassment</option>
+        <option value="inappropriate material">Inappropriate material</option>
+      </select>
+      <textarea id="detailsReportMessage" class="form-control" rows="4" placeholder="Add details for the admin team..."></textarea>
+      <button class="btn btn-danger" type="submit">Submit Report</button>
+    </form>
+  </div>
+
+  <script src="../js/utils/api.js"></script>
+  <script src="../js/utils/auth.js"></script>
+  <script src="../js/components/toast.js"></script>
+  <script src="../js/pages/note-details.js"></script>
+  <script src="../js/components/theme.js"></script>
+</body>
+</html>

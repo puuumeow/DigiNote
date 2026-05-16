@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DigiNote | Reports</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="upgraded-page">
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="../index.html" class="logo">DigiNote</a>
+      <div class="nav-links">
+        <a href="./dashboard.html">Dashboard</a>
+        <a href="./notes.html">Notes</a>
+        <a href="./upload.html">Upload</a>
+        <a href="./my-notes.html">My Notes</a>
+        <a href="./profile.html">Profile</a>
+        <a href="./bookmarks.html">Bookmarks</a>
+        <button id="themeToggle" class="btn btn-outline">🌙</button>
+      </div>
+    </div>
+  </nav>
+
+  <section class="reports-page admin-page">
+    <div class="container">
+      <button onclick="history.back()" class="btn btn-outline back-btn">← Back</button>
+
+      <div class="reports-hero glass-card">
+        <div>
+          <span class="eyebrow">Moderation Center</span>
+          <h1>Reported Notes</h1>
+          <p class="text-secondary">Review reports, open notes, mark reports as reviewed, reject false reports, or delete harmful notes.</p>
+        </div>
+        <button id="refreshReportsBtn" class="btn btn-primary" type="button">Refresh Reports</button>
+      </div>
+
+      <div id="reportsStatsGrid" class="admin-stats-grid reports-stats-grid"></div>
+
+      <div class="glass-card reports-control-panel">
+        <input id="reportsSearchInput" class="form-control" type="text" placeholder="Search by note, reporter, reason...">
+        <select id="reportsStatusFilter" class="form-control">
+          <option value="all">All statuses</option>
+          <option value="pending">Pending</option>
+          <option value="reviewed">Reviewed</option>
+          <option value="rejected">Rejected</option>
+        </select>
+        <button id="downloadReportsCsvBtn" class="btn btn-outline" type="button">Download CSV</button>
+      </div>
+
+      <div id="reportsList" class="reports-list"></div>
+    </div>
+  </section>
+
+  <script src="../js/utils/api.js"></script>
+  <script src="../js/utils/auth.js"></script>
+  <script src="../js/components/toast.js"></script>
+  <script src="../js/pages/reports.js"></script>
+  <script src="../js/components/theme.js"></script>
+</body>
+</html>

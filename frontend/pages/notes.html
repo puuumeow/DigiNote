@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DigiNote | All Notes</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="../index.html" class="logo">DigiNote</a>
+
+      <div class="nav-links">
+        <a href="./dashboard.html">Dashboard</a>
+        <a href="./notes.html" class="active">Notes</a>
+        <a href="./upload.html">Upload</a>
+        <a href="./my-notes.html">My Notes</a>
+        <a href="./profile.html">Profile</a>
+        <a href="./bookmarks.html">Bookmarks</a>
+        <a href="./notifications.html">Notifications</a>
+        <button id="themeToggle" class="btn btn-outline">🌙</button>
+      </div>
+    </div>
+  </nav>
+
+  <section class="notes-page upgraded-page">
+    <div class="container">
+      <button onclick="history.back()" class="btn btn-outline back-btn">← Back</button>
+
+      <div class="notes-hero glass-card premium-card">
+        <div>
+          <span class="eyebrow">Academic Library</span>
+          <h1>Find quality notes faster</h1>
+          <p class="text-secondary">Search by title, subject, university, department, or user.</p>
+        </div>
+
+        <a href="./upload.html" class="btn btn-primary">Upload Note</a>
+      </div>
+
+      <div class="glass-card search-panel">
+        <input type="text" id="searchInput" class="form-control search-box" placeholder="Search notes and users...">
+
+        <div class="filter-row">
+          <select id="categoryFilter" class="form-control">
+            <option value="">All categories</option>
+          </select>
+
+          <select id="paidFilter" class="form-control">
+            <option value="">Free + Paid</option>
+            <option value="false">Free only</option>
+            <option value="true">Paid only</option>
+          </select>
+
+          <select id="sortFilter" class="form-control">
+            <option value="newest">Newest</option>
+            <option value="oldest">Oldest</option>
+            <option value="downloads">Most downloaded</option>
+            <option value="upvotes">Most upvoted</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="usersContainer" class="note-grid"></div>
+      <div id="notesContainer" class="note-grid"></div>
+    </div>
+  </section>
+
+  <div id="commentsBackdrop" class="modal-backdrop"></div>
+  <div id="commentsModal" class="glass-card comments-modal">
+    <div class="modal-header">
+      <div>
+        <span class="eyebrow">Discussion</span>
+        <h2>Comments</h2>
+      </div>
+      <button onclick="closeComments()" class="btn btn-outline">✕</button>
+    </div>
+
+    <div id="commentsList"></div>
+
+    <form id="commentForm" class="comment-form">
+      <textarea id="commentText" class="form-control" placeholder="Write a helpful comment..." rows="3" required></textarea>
+      <button class="btn btn-primary" type="submit">Post Comment</button>
+    </form>
+  </div>
+
+
+
+  <div id="reportBackdrop" class="modal-backdrop"></div>
+  <div id="reportModal" class="glass-card report-modal">
+    <div class="modal-header">
+      <div>
+        <span class="eyebrow">Safety</span>
+        <h2>Report Note</h2>
+        <p id="reportNoteTitle" class="text-secondary">Tell admins what is wrong with this note.</p>
+      </div>
+      <button onclick="closeReportModal()" class="btn btn-outline">✕</button>
+    </div>
+
+    <form id="reportForm" class="report-form">
+      <select id="reportReason" class="form-control" required>
+        <option value="">Select a reason</option>
+        <option value="spam">Spam</option>
+        <option value="plagiarism">Plagiarism</option>
+        <option value="fake content">Fake content</option>
+        <option value="harassment">Harassment</option>
+        <option value="inappropriate material">Inappropriate material</option>
+      </select>
+      <textarea id="reportMessage" class="form-control" rows="4" placeholder="Add details for the admin team..."></textarea>
+      <button class="btn btn-danger" type="submit">Submit Report</button>
+    </form>
+  </div>
+
+  <script src="../js/utils/api.js"></script>
+  <script src="../js/utils/auth.js"></script>
+  <script src="../js/components/toast.js"></script>
+  <script src="../js/data/categories.js"></script>
+  <script src="../js/pages/notes.js"></script>
+  <script src="../js/components/theme.js"></script>
+</body>
+</html>

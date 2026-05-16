@@ -1,0 +1,37 @@
+.auth-page{
+  min-height:100vh;
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:center;
+}
+
+.auth-card{
+  width:100%;
+  max-width:450px;
+
+  padding:40px;
+}
+
+.auth-title{
+  font-size:32px;
+
+  margin-bottom:10px;
+}
+
+.auth-subtitle{
+  margin-bottom:30px;
+}
+
+.banned-login-message{
+  margin-bottom:20px;
+  padding:14px 16px;
+  border-radius:16px;
+  background:#fee2e2;
+  color:#991b1b;
+  font-weight:700;
+  border:1px solid #fecaca;
+  text-align:center;
+}

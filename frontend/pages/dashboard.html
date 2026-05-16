@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DigiNote | Dashboard</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="../index.html" class="logo">DigiNote</a>
+      <div class="nav-links">
+        <a href="./dashboard.html" class="active">Dashboard</a>
+        <a href="./notes.html">Notes</a>
+        <a href="./upload.html">Upload</a>
+        <a href="./my-notes.html">My Notes</a>
+        <a href="./profile.html">Profile</a>
+        <a href="./bookmarks.html">Bookmarks</a>
+        <a href="./notifications.html" class="notification-nav-link">Notifications <span id="notificationBadge" class="notification-badge hidden">0</span></a>
+        <button onclick="logout()" class="btn btn-danger" type="button">Logout</button>
+        <button id="themeToggle" class="btn btn-outline">🌙</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="dashboard">
+    <aside class="sidebar">
+      <h2>DigiNote</h2>
+      <div class="sidebar-menu" id="dashboardSidebarMenu">
+        <a href="./dashboard.html">Dashboard</a>
+        <a href="./notes.html">Browse Notes</a>
+        <a href="./upload.html">Upload Note</a>
+        <a href="./my-notes.html">My Notes</a>
+        <a href="./profile.html">Profile</a>
+        <a href="./bookmarks.html">Bookmarks</a>
+        <a href="./notifications.html">Notifications <span id="sidebarNotificationBadge" class="notification-badge hidden">0</span></a>
+        <a href="./revenue.html" class="admin-sidebar-link hidden">Revenue</a>
+        <a href="./reports.html" class="admin-sidebar-link hidden">Reports</a>
+        <button onclick="logout()" class="btn btn-danger">Logout</button>
+      </div>
+    </aside>
+
+    <main class="dashboard-content">
+      <div class="dashboard-welcome glass-card">
+        <span class="eyebrow">Student Workspace</span>
+        <h1>Welcome, <span id="userName"></span></h1>
+        <p class="text-secondary">Manage your academic content, notes, bookmarks, and notifications.</p>
+      </div>
+
+      <div class="dashboard-cards">
+        <div class="glass-card dashboard-card">
+          <p class="text-secondary">Total Uploads</p>
+          <h2 id="totalUploadsCount">0</h2>
+        </div>
+        <div class="glass-card dashboard-card">
+          <p class="text-secondary">Downloads</p>
+          <h2 id="downloadsCount">0</h2>
+        </div>
+        <div class="glass-card dashboard-card">
+          <p class="text-secondary">Earnings</p>
+          <h2 id="earningsCount">৳ 0</h2>
+        </div>
+        <div class="glass-card dashboard-card">
+          <p class="text-secondary">Unread Notifications</p>
+          <h2 id="unreadNotificationsCount">0</h2>
+        </div>
+      </div>
+
+
+      <div class="dashboard-grid-section">
+        <div class="glass-card dashboard-table-card">
+          <div class="dashboard-section-title">
+            <div>
+              <span class="eyebrow">Sales</span>
+              <h2>Who Bought My Notes</h2>
+            </div>
+            <a href="./my-notes.html" class="btn btn-outline">My Notes</a>
+          </div>
+          <div id="salesList" class="dashboard-list">
+            <p class="text-secondary">Loading sales...</p>
+          </div>
+        </div>
+
+        <div class="glass-card dashboard-table-card">
+          <div class="dashboard-section-title">
+            <div>
+              <span class="eyebrow">Purchases</span>
+              <h2>Notes I Bought</h2>
+            </div>
+            <a href="./notes.html" class="btn btn-outline">Browse</a>
+          </div>
+          <div id="purchasesList" class="dashboard-list">
+            <p class="text-secondary">Loading purchases...</p>
+          </div>
+        </div>
+      </div>
+
+      <div id="adminDashboardCard"></div>
+    </main>
+  </div>
+
+  <script src="../js/utils/api.js"></script>
+  <script src="../js/utils/auth.js"></script>
+  <script src="../js/components/toast.js"></script>
+  <script src="../js/pages/dashboard.js"></script>
+  <script src="../js/components/theme.js"></script>
+</body>
+</html>

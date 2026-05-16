@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DigiNote | Revenue</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="upgraded-page">
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="../index.html" class="logo">DigiNote</a>
+
+      <div class="nav-links">
+        <a href="./dashboard.html">Dashboard</a>
+        <a href="./notes.html">Notes</a>
+        <a href="./upload.html">Upload</a>
+        <a href="./my-notes.html">My Notes</a>
+        <a href="./profile.html">Profile</a>
+        <a href="./bookmarks.html">Bookmarks</a>
+        <button id="logoutBtn" class="btn btn-danger" type="button">Logout</button>
+        <button id="themeToggle" class="btn btn-outline" type="button">🌙</button>
+      </div>
+    </div>
+  </nav>
+
+  <section class="revenue-page">
+    <div class="container">
+      <button onclick="history.back()" class="btn btn-outline revenue-back-btn" type="button">← Back</button>
+
+      <div id="revenueAccessDenied" class="glass-card revenue-access-denied hidden">
+        <h1>Admin access required</h1>
+        <p class="text-secondary">Revenue analytics are only available for admins and superadmins. You are still logged in.</p>
+        <a href="./dashboard.html" class="btn btn-primary">Go Back To Dashboard</a>
+      </div>
+
+      <div id="revenueContent">
+        <div class="section-heading revenue-heading">
+          <span class="eyebrow">Admin revenue</span>
+          <h1>Revenue Dashboard</h1>
+          <p class="text-secondary">Track paid downloads and see exactly who purchased which note.</p>
+        </div>
+
+        <div class="dashboard-cards revenue-summary-grid">
+          <div class="glass-card dashboard-card">
+            <p class="text-secondary">Total Revenue</p>
+            <h2 id="totalRevenue">৳ 0</h2>
+          </div>
+
+          <div class="glass-card dashboard-card">
+            <p class="text-secondary">Premium Buyers</p>
+            <h2 id="premiumUsers">0</h2>
+          </div>
+
+          <div class="glass-card dashboard-card">
+            <p class="text-secondary">Paid Downloads</p>
+            <h2 id="paidDownloads">0</h2>
+          </div>
+        </div>
+
+        <div class="glass-card revenue-panel">
+          <div class="revenue-panel-header">
+            <div>
+              <span class="eyebrow">Purchase records</span>
+              <h2>Who purchased what</h2>
+              <p id="revenueStatus" class="text-secondary">No paid notes have been sold yet. Revenue starts from ৳ 0.</p>
+            </div>
+
+            <div class="revenue-panel-actions">
+              <input id="purchaseSearchInput" class="form-control" type="text" placeholder="Search buyer, note, seller...">
+              <button id="exportPurchasesBtn" class="btn btn-outline" type="button">Export CSV</button>
+            </div>
+          </div>
+
+          <div class="revenue-table-wrap">
+            <table class="revenue-table">
+              <thead>
+                <tr>
+                  <th>Buyer</th>
+                  <th>Purchased Note</th>
+                  <th>Seller</th>
+                  <th>Amount</th>
+                  <th>Status</th>
+                  <th>Date</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="purchaseTableBody">
+                <tr>
+                  <td colspan="7">
+                    <div class="empty-state">
+                      <h2>No purchases yet</h2>
+                      <p class="text-secondary">Paid purchase records will appear here.</p>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="../js/utils/api.js"></script>
+  <script src="../js/utils/auth.js"></script>
+  <script src="../js/components/toast.js"></script>
+  <script src="../js/pages/revenue.js"></script>
+  <script src="../js/components/theme.js"></script>
+</body>
+</html>

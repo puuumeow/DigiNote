@@ -1,0 +1,39 @@
+.sidebar{
+  width:260px;
+
+  background:var(--bg-secondary);
+
+  border-right:1px solid var(--border);
+
+  min-height:100vh;
+
+  padding:30px 20px;
+
+  position:fixed;
+}
+
+.sidebar-menu{
+  display:flex;
+
+  flex-direction:column;
+
+  gap:14px;
+
+  margin-top:30px;
+}
+
+.sidebar-menu a{
+  padding:14px;
+
+  border-radius:12px;
+
+  color:var(--text-secondary);
+
+  transition:var(--transition);
+}
+
+.sidebar-menu a:hover{
+  background:var(--primary);
+
+  color:white;
+}

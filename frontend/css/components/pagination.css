@@ -1,0 +1,39 @@
+.pagination{
+  display:flex;
+
+  justify-content:center;
+
+  gap:10px;
+
+  margin-top:50px;
+
+  flex-wrap:wrap;
+}
+
+.pagination button{
+
+  width:45px;
+  height:45px;
+
+  border-radius:12px;
+
+  background:var(--bg-secondary);
+
+  color:var(--text);
+
+  border:1px solid var(--border);
+
+  transition:var(--transition);
+}
+
+.pagination button:hover{
+  background:var(--primary);
+
+  color:white;
+}
+
+.pagination .active{
+  background:var(--primary);
+
+  color:white;
+}

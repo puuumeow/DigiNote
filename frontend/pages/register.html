@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <button id="themeToggle" class="btn btn-outline" style="position:fixed;top:20px;right:20px;z-index:1000;">🌙</button>
+
+  <section class="auth-page">
+    <div class="glass-card auth-card register-card-wide">
+      <h1 class="auth-title">Create Account</h1>
+      <p class="auth-subtitle text-secondary">Join DigiNote with complete academic information</p>
+
+      <form id="registerForm">
+        <div class="form-group">
+          <label>Full Name *</label>
+          <input type="text" id="fullName" class="form-control" required placeholder="Example: Naruto Uzumaki">
+        </div>
+
+        <div class="form-group">
+          <label>Email *</label>
+          <input type="email" id="email" class="form-control" required placeholder="example@email.com">
+        </div>
+
+        <div class="form-group">
+          <label>Password *</label>
+          <input type="password" id="password" class="form-control" required minlength="6" placeholder="Minimum 6 characters">
+        </div>
+
+        <div class="form-group">
+          <label>University *</label>
+          <div class="select-plus-row">
+            <select id="university" class="form-control" required>
+              <option value="">Select university</option>
+            </select>
+            <button type="button" id="addUniversityBtn" class="mini-plus-btn" title="Add custom university">＋</button>
+          </div>
+          <input type="text" id="customUniversity" class="form-control" placeholder="Type custom university" style="display:none;margin-top:10px;">
+          <small class="field-hint">BUP is selected by default. Press ＋ if yours is missing.</small>
+        </div>
+
+        <div class="form-group">
+          <label>Faculty *</label>
+          <div class="select-plus-row">
+            <select id="faculty" class="form-control" required>
+              <option value="">Select faculty</option>
+            </select>
+            <button type="button" id="addFacultyBtn" class="mini-plus-btn" title="Add custom faculty">＋</button>
+          </div>
+          <input type="text" id="customFaculty" class="form-control" placeholder="Type custom faculty" style="display:none;margin-top:10px;">
+        </div>
+
+        <div class="form-group">
+          <label>Department *</label>
+          <input type="text" id="department" class="form-control" list="departmentSuggestions" required placeholder="Example: Information and Communication Technology">
+          <datalist id="departmentSuggestions"></datalist>
+        </div>
+
+        <button class="btn btn-primary" style="width:100%;" type="submit">
+          Register
+        </button>
+      </form>
+
+      <p style="margin-top:20px;text-align:center;">
+        Already have an account?
+        <a href="./login.html">Login here</a>
+      </p>
+    </div>
+  </section>
+
+  <script src="../js/utils/api.js"></script>
+  <script src="../js/utils/auth.js"></script>
+  <script src="../js/components/toast.js"></script>
+  <script src="../js/data/categories.js"></script>
+  <script src="../js/pages/register.js"></script>
+  <script src="../js/components/theme.js"></script>
+</body>
+</html>

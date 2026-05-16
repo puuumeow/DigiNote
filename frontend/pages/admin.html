@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="upgraded-page">
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="../index.html" class="logo">DigiNote</a>
+
+      <div class="nav-links">
+        <a href="./dashboard.html">Dashboard</a>
+        <a href="./notes.html">Notes</a>
+        <a href="./upload.html">Upload</a>
+        <a href="./my-notes.html">My Notes</a>
+        <a href="./profile.html">Profile</a>
+        <a href="./bookmarks.html">Bookmarks</a>
+        <button id="themeToggle" class="btn btn-outline">🌙</button>
+      </div>
+    </div>
+  </nav>
+
+  <section class="admin-page">
+    <div class="container">
+      <button onclick="history.back()" class="btn btn-outline back-btn">← Back</button>
+
+      <div class="section-heading">
+        <span class="eyebrow">Admin controls</span>
+        <h1>Admin Dashboard</h1>
+        <p class="text-secondary">Manage users, moderate notes, review quick analytics, and control note suggestions from one place.</p>
+      </div>
+
+      <div id="adminStatsGrid" class="admin-stats-grid"></div>
+
+      <div id="adminInsightStrip" class="admin-insight-strip"></div>
+
+      <div class="admin-grid-layout">
+        <div class="glass-card admin-panel admin-panel-large">
+          <div class="admin-panel-header">
+            <div>
+              <span class="eyebrow">Users</span>
+              <h2>Manage Users</h2>
+              <p class="text-secondary">Search users, change roles, verify creators, and ban or unban accounts.</p>
+            </div>
+          </div>
+
+          <div class="admin-toolbar">
+            <input id="userSearchInput" type="text" class="form-control" placeholder="Search by name or email">
+            <select id="userRoleFilter" class="form-control">
+              <option value="all">All Roles</option>
+              <option value="user">User</option>
+              <option value="creator">Creator</option>
+              <option value="admin">Admin</option>
+              <option value="superadmin">Superadmin</option>
+            </select>
+            <select id="userStatusFilter" class="form-control">
+              <option value="all">All Status</option>
+              <option value="active">Active</option>
+              <option value="banned">Banned</option>
+            </select>
+          </div>
+
+          <div class="admin-table-wrap">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Role</th>
+                  <th>Status</th>
+                  <th>Joined</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="usersTable"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="glass-card admin-panel admin-side-panel">
+          <div class="admin-panel-header">
+            <div>
+              <span class="eyebrow">Shortcuts</span>
+              <h2>Quick Actions</h2>
+            </div>
+          </div>
+
+          <div class="admin-action-list">
+            <button id="refreshAdminDataBtn" class="btn btn-primary btn-wide" type="button">Refresh All Data</button>
+            <a href="./revenue.html" class="btn btn-outline btn-wide">Open Revenue Page</a>
+            <a href="./reports.html" class="btn btn-outline btn-wide">Open Reports Page</a>
+            <button id="exportReportsBtn" class="btn btn-outline btn-wide" type="button">Export Report CSV</button>
+          </div>
+
+          <div class="admin-tip-box">
+            <h3>Admin improvements added</h3>
+            <ul>
+              <li>User search and filters</li>
+              <li>Role management</li>
+              <li>Creator verification</li>
+              <li>Note featuring and deletion</li>
+              <li>Overview analytics cards</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="glass-card admin-panel admin-panel-full">
+        <div class="admin-panel-header">
+          <div>
+            <span class="eyebrow">Moderation</span>
+            <h2>Manage Notes</h2>
+            <p class="text-secondary">Feature high quality notes, search note uploads, and remove content when needed.</p>
+          </div>
+        </div>
+
+        <div class="admin-toolbar">
+          <input id="noteSearchInput" type="text" class="form-control" placeholder="Search notes, category, or uploader">
+          <select id="noteFeatureFilter" class="form-control">
+            <option value="all">All Notes</option>
+            <option value="featured">Featured Only</option>
+            <option value="free">Free Only</option>
+            <option value="paid">Paid Only</option>
+          </select>
+        </div>
+
+        <div class="admin-table-wrap">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Uploader</th>
+                <th>Category</th>
+                <th>Type</th>
+                <th>Stats</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="notesTable"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="glass-card admin-panel admin-panel-full admin-reports-panel">
+        <div class="admin-panel-header">
+          <div>
+            <span class="eyebrow">Reports</span>
+            <h2>Reported Notes Queue</h2>
+            <p class="text-secondary">Review user reports, open the reported note, reject false reports, or delete harmful notes.</p>
+          </div>
+          <a href="./reports.html" class="btn btn-outline">Full Reports Page</a>
+        </div>
+
+        <div class="admin-toolbar admin-report-toolbar">
+          <input id="reportSearchInput" type="text" class="form-control" placeholder="Search reports by note, reporter, reason">
+          <select id="reportStatusFilter" class="form-control">
+            <option value="all">All Reports</option>
+            <option value="pending">Pending</option>
+            <option value="reviewed">Reviewed</option>
+            <option value="rejected">Rejected</option>
+          </select>
+        </div>
+
+        <div class="admin-table-wrap">
+          <table class="admin-table admin-reports-table">
+            <thead>
+              <tr>
+                <th>Reported Note</th>
+                <th>Reporter</th>
+                <th>Reason</th>
+                <th>Status</th>
+                <th>Date</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="reportsTable"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="glass-card admin-category-manager">
+        <div class="section-heading">
+          <span class="eyebrow">Suggestions</span>
+          <h2>Manage Categories & Departments</h2>
+          <p class="text-secondary">Delete any category or department from the upload suggestions. Changes are saved in this browser.</p>
+        </div>
+
+        <div class="category-manager-actions">
+          <button id="resetCategoriesBtn" class="btn btn-outline" type="button">Reset Default Suggestions</button>
+        </div>
+
+        <div id="categoryManagerList" class="category-manager-list"></div>
+      </div>
+    </div>
+  </section>
+
+  <script src="../js/utils/api.js"></script>
+  <script src="../js/utils/auth.js"></script>
+  <script src="../js/components/toast.js"></script>
+  <script src="../js/data/categories.js"></script>
+  <script src="../js/pages/admin.js"></script>
+  <script src="../js/components/theme.js"></script>
+</body>
+</html>
